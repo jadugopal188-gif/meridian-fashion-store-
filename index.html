@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#11110f">
+  <meta name="description" content="Meridian — considered essentials, modern silhouettes, timeless style.">
+  <title>Meridian — Considered Style</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="announcement">COMPLIMENTARY SHIPPING ON ORDERS OVER $150 <span>✦</span> NEW SEASON, NEW PERSPECTIVE</div>
+  <header class="site-header">
+    <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+    <a class="wordmark" href="#home" aria-label="Meridian home">MERIDIAN<span>®</span></a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#shop">Shop all</a><a href="#shop" data-filter-link="Clothing">Clothing</a><a href="#shop" data-filter-link="Accessories">Accessories</a><a href="#story">Our story</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn search-toggle" id="searchToggle" aria-label="Search">⌕</button>
+      <button class="icon-btn bag-trigger" id="cartOpen" aria-label="Open shopping bag">Bag <span class="bag-count" id="bagCount">0</span></button>
+    </div>
+  </header>
+  <div class="search-panel hidden" id="searchPanel"><input id="searchInput" type="search" placeholder="Search pieces..." aria-label="Search products"><button class="text-btn" id="searchGo">Search ↗</button></div>
+  <main>
+    <section class="hero" id="home">
+      
+      <div class="hero-photo" role="img" aria-label="Model wearing minimalist neutral fashion"></div>
+      <div class="hero-shade"></div>
+      <div class="hero-copy">
+        <p class="eyebrow light">THE NEW SEASON / 2026</p>
+        <h1>Less, but<br><em>better.</em></h1>
+        <p class="hero-sub">Thoughtful pieces. Exceptional fabrics.<br>Made for wherever life takes you.</p>
+        <a class="button button-gold" href="#shop">Discover the collection <span>↗</span></a>
+      </div>
+      <div class="hero-note"><span>01 / 03</span><span>THE EVERYDAY EDIT</span></div>
+    </section>
+    <section class="ticker"><div>FORM MEETS FUNCTION <b>✳</b> EVERYDAY, ELEVATED <b>✳</b> MADE TO BE WORN <b>✳</b> FORM MEETS FUNCTION <b>✳</b></div></section>
+    <section class="intro section-wrap" id="story">
+      <p class="eyebrow">A MORE CONSIDERED WARDROBE</p>
+      <div class="intro-row"><h2>Style that speaks<br><em>without saying.</em></h2><p>We believe the best pieces don't compete for attention. They earn a place in your life — through considered design, lasting quality and the details you notice over time.</p></div>
+    </section>
+    <section class="shop-section section-wrap" id="shop">
+      <div class="section-heading"><div><p class="eyebrow">THE MERIDIAN EDIT</p><h2>Shop the collection</h2></div><a href="#shop" class="underlink" id="viewAll">View all pieces ↗</a></div>
+      <div class="shop-controls"><div class="filters" id="filters"><button class="filter active" data-filter="All">All pieces <span>08</span></button><button class="filter" data-filter="Clothing">Clothing</button><button class="filter" data-filter="Accessories">Accessories</button></div><label class="sort-label">Sort by <select id="sortSelect"><option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select></label></div>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+    <section class="editorial">
+      <div class="editorial-image"></div><div class="editorial-copy"><p class="eyebrow light">THE ART OF EVERYDAY</p><h2>Good things<br>take <em>shape.</em></h2><p>Versatile layers and quietly confident essentials, designed to work harder in your wardrobe.</p><a class="button button-outline" href="#shop">Explore the edit <span>↗</span></a></div>
+    </section>
+    <section class="newsletter section-wrap"><p class="eyebrow">A NOTE FROM MERIDIAN</p><h2>Good taste, <em>in your inbox.</em></h2><p>New arrivals, considered edits and 10% off your first order.</p><form id="newsletterForm" class="newsletter-form"><input type="email" id="newsletterEmail" placeholder="Your email address" required><button type="submit">Join us ↗</button></form><p class="form-note" id="newsletterNote">By subscribing, you agree to receive occasional emails from Meridian.</p></section>
+  </main>
+  <footer class="footer"><a class="wordmark footer-mark" href="#home">MERIDIAN<span>®</span></a><p>Considered essentials for everyday living.</p><div class="footer-links"><a href="#shop">Shop</a><a href="#story">Our story</a><a href="#contact" id="contactLink">Contact</a><a href="#policies">Shipping & returns</a></div><small>© <span id="year"></span> Meridian Studio. Demo storefront.</small></footer>
+
+  <div class="overlay hidden" id="overlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping bag" aria-hidden="true">
+    <div class="drawer-head"><div><p class="eyebrow">YOUR SELECTION</p><h2>Your bag <span id="drawerCount">(0)</span></h2></div><button class="icon-btn" id="cartClose" aria-label="Close bag">×</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-bottom"><div class="subtotal"><span>Subtotal</span><strong id="subtotal">$0.00</strong></div><p>Shipping and taxes calculated at checkout.</p><button class="button button-dark full" id="checkoutBtn">Continue to checkout <span>↗</span></button><button class="text-btn continue-shopping" id="continueShopping">Continue shopping</button></div>
+  </aside>
+
+  <section class="modal hidden" id="productModal" role="dialog" aria-modal="true" aria-label="Product details"><button class="modal-close icon-btn" id="productClose" aria-label="Close details">×</button><div id="productDetail"></div></section>
+  <section class="modal checkout-modal hidden" id="checkoutModal" role="dialog" aria-modal="true" aria-label="Checkout"><button class="modal-close icon-btn" id="checkoutClose" aria-label="Close checkout">×</button><p class="eyebrow">ALMOST YOURS</p><h2>Checkout</h2><p class="checkout-demo-note">Demo checkout — no real payment will be taken.</p><form id="checkoutForm" class="checkout-form"><div class="form-two"><label>First name<input name="firstName" required autocomplete="given-name"></label><label>Last name<input name="lastName" required autocomplete="family-name"></label></div><label>Email address<input name="email" type="email" required autocomplete="email"></label><label>Shipping address<input name="address" required autocomplete="street-address"></label><div class="form-two"><label>City<input name="city" required autocomplete="address-level2"></label><label>Postal code<input name="postal" required autocomplete="postal-code"></label></div><label>Country<select name="country" required><option value="">Select country</option><option>United States</option><option>United Kingdom</option><option>Canada</option><option>India</option><option>Norway</option><option>Other</option></select></label><div class="checkout-total"><span>Demo order total</span><strong id="checkoutTotal">$0.00</strong></div><button class="button button-dark full" type="submit">Place demo order</button></form><div id="checkoutMessage" class="checkout-message hidden"></div></section>
+
+  <section class="contact-panel hidden" id="contactPanel"><button class="icon-btn contact-close" id="contactClose">×</button><p class="eyebrow">WE'D LOVE TO HEAR FROM YOU</p><h2>Let's talk.</h2><p>Questions about a piece, sizing or an order? Send us a note.</p><form id="contactForm"><label>Your name<input name="name" required></label><label>Email address<input name="email" type="email" required></label><label>Message<textarea name="message" rows="4" required></textarea></label><button class="button button-dark full">Prepare message</button><p class="form-note" id="contactNote">Demo contact form. Connect an email service before launch.</p></form></section>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
